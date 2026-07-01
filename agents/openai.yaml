@@ -1,0 +1,7 @@
+interface:
+  display_name: "品牌诊断 Skill"
+  short_description: "生成咨询公司风格品牌诊断报告"
+  default_prompt: "Use $brand-diagnosis-skill to generate a complete Chinese consulting-style brand diagnosis report for this brand."
+
+policy:
+  allow_implicit_invocation: true
