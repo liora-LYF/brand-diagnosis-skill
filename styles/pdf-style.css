@@ -1,41 +1,52 @@
 @page {
   size: A4;
-  margin: 22mm 18mm;
+  margin: 14mm;
+}
+
+:root {
+  --neon: #C8FF00;
+  --white: #FFFFFF;
+  --black: #1A1A1A;
+  --muted: rgba(26, 26, 26, 0.66);
+  --line: rgba(26, 26, 26, 0.18);
+  --font-cn: "PingFang SC", "PingFang TC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  --font-en: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html {
-  color: #1f2933;
-  background: #ffffff;
-}
-
+html,
 body {
   margin: 0;
-  font-family: "PingFang SC", "PingFang TC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
-  font-size: 11.5pt;
-  line-height: 1.65;
-  color: #1f2933;
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-cn);
+  font-size: 11pt;
+  line-height: 1.58;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  color: #111827;
-  line-height: 1.35;
-  font-weight: 700;
+  margin: 0 0 10pt;
+  color: var(--black);
+  font-family: var(--font-en), var(--font-cn);
+  font-weight: 950;
+  letter-spacing: 0;
+  line-height: 1.04;
   page-break-after: avoid;
   break-after: avoid;
 }
 
 h1 {
-  font-size: 24pt;
-  margin: 0 0 18pt;
+  font-size: 34pt;
   padding-bottom: 10pt;
-  border-bottom: 2px solid #111827;
+  border-bottom: 6pt solid var(--neon);
   page-break-before: always;
   break-before: page;
 }
@@ -46,24 +57,36 @@ body > h1:first-child {
 }
 
 h2 {
-  font-size: 17pt;
-  margin: 26pt 0 10pt;
-  padding-bottom: 5pt;
-  border-bottom: 1px solid #d1d5db;
+  margin-top: 22pt;
+  font-size: 24pt;
+}
+
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 18pt;
+  height: 18pt;
+  margin-right: 8pt;
+  background: var(--neon);
+  vertical-align: -2pt;
 }
 
 h3 {
-  font-size: 13.5pt;
-  margin: 18pt 0 7pt;
+  margin-top: 16pt;
+  font-size: 15pt;
 }
 
 h4 {
-  font-size: 11.5pt;
-  margin: 14pt 0 5pt;
+  margin-top: 12pt;
+  font-size: 12pt;
 }
 
 p {
-  margin: 0 0 9pt;
+  margin: 0 0 8pt;
+}
+
+strong {
+  font-weight: 900;
 }
 
 ul,
@@ -74,19 +97,6 @@ ol {
 
 li {
   margin: 2pt 0;
-}
-
-strong {
-  color: #111827;
-  font-weight: 700;
-}
-
-blockquote {
-  margin: 12pt 0;
-  padding: 8pt 12pt;
-  border-left: 4px solid #6b7280;
-  background: #f6f7f9;
-  color: #374151;
 }
 
 table {
@@ -109,82 +119,132 @@ tr {
 
 th,
 td {
-  border: 1px solid #d1d5db;
-  padding: 7pt 8pt;
+  border: 1.4pt solid var(--black);
+  padding: 6pt 7pt;
   vertical-align: top;
   word-break: break-word;
 }
 
 th {
-  background: #f3f4f6;
-  color: #111827;
-  font-weight: 700;
+  background: var(--neon);
+  color: var(--black);
+  font-family: var(--font-en), var(--font-cn);
+  font-weight: 950;
 }
 
 td {
-  color: #1f2933;
-}
-
-hr {
-  border: 0;
-  border-top: 1px solid #d1d5db;
-  margin: 18pt 0;
+  background: var(--white);
+  color: var(--black);
 }
 
 code {
   font-family: Menlo, Consolas, monospace;
-  font-size: 9.5pt;
-  background: #f3f4f6;
+  font-size: 9pt;
+  color: var(--black);
+  background: var(--neon);
   padding: 1pt 3pt;
-  border-radius: 2pt;
 }
 
 pre {
   margin: 10pt 0 14pt;
   padding: 10pt;
-  background: #f3f4f6;
-  border: 1px solid #d1d5db;
+  background: var(--white);
+  color: var(--black);
+  border: 1.4pt solid var(--black);
   white-space: pre-wrap;
   word-break: break-word;
   page-break-inside: avoid;
   break-inside: avoid;
+  box-shadow: 4pt 4pt 0 var(--neon);
+}
+
+pre code {
+  color: inherit;
+  background: transparent;
+  padding: 0;
 }
 
 .key-insight,
 .diagnosis-conclusion,
-.strategic-implication {
+.strategic-implication,
+.evidence-note,
+.counter-argument,
+.highlight-panel {
   margin: 12pt 0;
-  padding: 10pt 12pt;
-  border: 1px solid #c8ccd2;
-  background: #f7f8fa;
+  padding: 11pt 12pt;
+  border: 1.4pt solid var(--black);
+  background: var(--white);
+  box-shadow: 5pt 5pt 0 var(--neon);
   page-break-inside: avoid;
   break-inside: avoid;
 }
 
 .key-insight::before,
 .diagnosis-conclusion::before,
-.strategic-implication::before {
+.strategic-implication::before,
+.evidence-note::before,
+.counter-argument::before {
   display: block;
-  margin-bottom: 4pt;
-  color: #111827;
-  font-weight: 700;
+  width: fit-content;
+  margin-bottom: 5pt;
+  padding: 2pt 5pt;
+  background: var(--neon);
+  color: var(--black);
+  font-family: var(--font-en), var(--font-cn);
+  font-size: 8pt;
+  font-weight: 950;
 }
 
 .key-insight::before {
-  content: "关键洞察";
+  content: "KEY INSIGHT / 关键洞察";
 }
 
 .diagnosis-conclusion::before {
-  content: "诊断结论";
+  content: "DIAGNOSIS / 诊断结论";
 }
 
 .strategic-implication::before {
-  content: "战略启示";
+  content: "IMPLICATION / 战略启示";
 }
 
-.page-break {
-  page-break-before: always;
-  break-before: page;
+.evidence-note::before {
+  content: "EVIDENCE / 诊断依据";
+}
+
+.counter-argument::before {
+  content: "COUNTER ARGUMENT / 反方论证";
+}
+
+.executive-summary,
+.evidence-page,
+.page-section {
+  page-break-after: always;
+  break-after: page;
+}
+
+.wide-table,
+.roadmap-table {
+  font-size: 9pt;
+}
+
+.wide-table th,
+.wide-table td,
+.roadmap-table th,
+.roadmap-table td {
+  padding: 5pt;
+}
+
+.tag,
+.section-kicker,
+.eyebrow {
+  display: inline-block;
+  padding: 2pt 6pt;
+  background: var(--neon);
+  color: var(--black);
+  font-family: var(--font-en), var(--font-cn);
+  font-size: 8pt;
+  font-weight: 950;
+  text-transform: uppercase;
 }
 
 .no-break {
