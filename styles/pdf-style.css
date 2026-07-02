@@ -4,11 +4,15 @@
 }
 
 :root {
-  --neon: #C8FF00;
-  --white: #FFFFFF;
-  --black: #1A1A1A;
-  --muted: rgba(26, 26, 26, 0.66);
-  --line: rgba(26, 26, 26, 0.18);
+  --bg: #0B0F1A;
+  --bg-alt: #0E1117;
+  --gradient-a: #6C5CE7;
+  --gradient-b: #00D2FF;
+  --gradient-c: #FF4ECD;
+  --card: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.12);
+  --text: rgba(255, 255, 255, 0.94);
+  --muted: rgba(255, 255, 255, 0.64);
   --font-cn: "PingFang SC", "PingFang TC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
   --font-en: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -20,8 +24,8 @@
 html,
 body {
   margin: 0;
-  background: var(--white);
-  color: var(--black);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-cn);
   font-size: 11pt;
   line-height: 1.58;
@@ -34,7 +38,7 @@ h2,
 h3,
 h4 {
   margin: 0 0 10pt;
-  color: var(--black);
+  color: var(--text);
   font-family: var(--font-en), var(--font-cn);
   font-weight: 950;
   letter-spacing: 0;
@@ -46,7 +50,7 @@ h4 {
 h1 {
   font-size: 34pt;
   padding-bottom: 10pt;
-  border-bottom: 6pt solid var(--neon);
+  border-bottom: 5pt solid var(--gradient-b);
   page-break-before: always;
   break-before: page;
 }
@@ -67,7 +71,8 @@ h2::before {
   width: 18pt;
   height: 18pt;
   margin-right: 8pt;
-  background: var(--neon);
+  border-radius: 6pt;
+  background: linear-gradient(135deg, var(--gradient-a), var(--gradient-b), var(--gradient-c));
   vertical-align: -2pt;
 }
 
@@ -83,9 +88,11 @@ h4 {
 
 p {
   margin: 0 0 8pt;
+  color: var(--muted);
 }
 
 strong {
+  color: var(--text);
   font-weight: 900;
 }
 
@@ -102,8 +109,13 @@ li {
 table {
   width: 100%;
   margin: 10pt 0 14pt;
-  border-collapse: collapse;
+  overflow: hidden;
+  border: 1pt solid var(--border);
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10pt;
   table-layout: fixed;
+  background: rgba(255, 255, 255, 0.04);
   page-break-inside: avoid;
   break-inside: avoid;
 }
@@ -119,49 +131,59 @@ tr {
 
 th,
 td {
-  border: 1.4pt solid var(--black);
   padding: 6pt 7pt;
+  border-bottom: 1pt solid var(--border);
+  border-right: 1pt solid var(--border);
   vertical-align: top;
   word-break: break-word;
 }
 
+th:last-child,
+td:last-child {
+  border-right: 0;
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
 th {
-  background: var(--neon);
-  color: var(--black);
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.45), rgba(0, 210, 255, 0.28), rgba(255, 78, 205, 0.32));
+  color: var(--text);
   font-family: var(--font-en), var(--font-cn);
   font-weight: 950;
 }
 
 td {
-  background: var(--white);
-  color: var(--black);
+  color: var(--muted);
 }
 
 code {
+  padding: 1pt 3pt;
+  border-radius: 3pt;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
   font-family: Menlo, Consolas, monospace;
   font-size: 9pt;
-  color: var(--black);
-  background: var(--neon);
-  padding: 1pt 3pt;
 }
 
 pre {
   margin: 10pt 0 14pt;
   padding: 10pt;
-  background: var(--white);
-  color: var(--black);
-  border: 1.4pt solid var(--black);
+  border: 1pt solid var(--border);
+  border-radius: 10pt;
+  background: rgba(0, 0, 0, 0.28);
+  color: var(--text);
   white-space: pre-wrap;
   word-break: break-word;
   page-break-inside: avoid;
   break-inside: avoid;
-  box-shadow: 4pt 4pt 0 var(--neon);
 }
 
 pre code {
-  color: inherit;
-  background: transparent;
   padding: 0;
+  background: transparent;
+  color: inherit;
 }
 
 .key-insight,
@@ -169,12 +191,16 @@ pre code {
 .strategic-implication,
 .evidence-note,
 .counter-argument,
-.highlight-panel {
+.highlight-panel,
+.score-card,
+.model-block,
+.cards article,
+.bottleneck-map article {
   margin: 12pt 0;
   padding: 11pt 12pt;
-  border: 1.4pt solid var(--black);
-  background: var(--white);
-  box-shadow: 5pt 5pt 0 var(--neon);
+  border: 1pt solid var(--border);
+  border-radius: 12pt;
+  background: var(--card);
   page-break-inside: avoid;
   break-inside: avoid;
 }
@@ -187,9 +213,10 @@ pre code {
   display: block;
   width: fit-content;
   margin-bottom: 5pt;
-  padding: 2pt 5pt;
-  background: var(--neon);
-  color: var(--black);
+  padding: 2pt 6pt;
+  border-radius: 999pt;
+  background: linear-gradient(135deg, var(--gradient-a), var(--gradient-b), var(--gradient-c));
+  color: #FFFFFF;
   font-family: var(--font-en), var(--font-cn);
   font-size: 8pt;
   font-weight: 950;
@@ -239,8 +266,9 @@ pre code {
 .eyebrow {
   display: inline-block;
   padding: 2pt 6pt;
-  background: var(--neon);
-  color: var(--black);
+  border-radius: 999pt;
+  background: linear-gradient(135deg, var(--gradient-a), var(--gradient-b), var(--gradient-c));
+  color: #FFFFFF;
   font-family: var(--font-en), var(--font-cn);
   font-size: 8pt;
   font-weight: 950;

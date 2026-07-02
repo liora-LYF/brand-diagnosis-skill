@@ -20,10 +20,66 @@
         <div><span>用途</span><strong>{{诊断报告用途}}</strong></div>
         <div><span>深度</span><strong>{{报告深度}}</strong></div>
       </div>
+      <div class="hero-actions">
+        <a class="gradient-button" href="#executive-summary">查看核心结论</a>
+        <a class="ghost-button" href="#growth-bottleneck-map">查看增长卡点</a>
+      </div>
+    </section>
+
+    <!-- ========== DASHBOARD OVERVIEW ========== -->
+    <section class="page-section dashboard-overview">
+      <div class="section-kicker">DASHBOARD / SKILL MODULES</div>
+      <h2>品牌诊断工作台</h2>
+
+      <!-- Metrics Cards -->
+      <div class="metrics-cards">
+        <article><span class="icon">01</span><strong>{{核心问题数量}}</strong><p>核心问题</p></article>
+        <article><span class="icon">02</span><strong>{{增长卡点数量}}</strong><p>增长卡点</p></article>
+        <article><span class="icon">03</span><strong>{{战略机会数量}}</strong><p>机会判断</p></article>
+        <article><span class="icon">04</span><strong>{{待验证假设数量}}</strong><p>待验证假设</p></article>
+      </div>
+
+      <!-- Feature Grid (Skill 模块) -->
+      <div class="feature-grid">
+        <article><span class="icon">✦</span><h3>问题归因</h3><p>从表面问题、直接原因、深层根因推导到战略命题。</p></article>
+        <article><span class="icon">◇</span><h3>瓶颈识别</h3><p>识别认知、信任、转化、复购、渠道和组织协同卡点。</p></article>
+        <article><span class="icon">↗</span><h3>结构拆解</h3><p>按行业、竞品、用户、资产和增长链路拆解品牌状态。</p></article>
+        <article><span class="icon">◎</span><h3>机会判断</h3><p>输出战略机会、优先级矩阵和反方论证后的修正判断。</p></article>
+      </div>
+
+      <!-- Workflow Section -->
+      <div class="workflow-section">
+        <h3>诊断工作流</h3>
+        <div class="workflow-steps">
+          <span>输入信息</span>
+          <span>依据标注</span>
+          <span>结构拆解</span>
+          <span>卡点定位</span>
+          <span>机会判断</span>
+          <span>HTML 输出</span>
+        </div>
+      </div>
+
+      <!-- Output Preview -->
+      <div class="output-preview">
+        <h3>输出预览</h3>
+        <div class="preview-grid">
+          <article><strong>核心问题列表</strong><p>{{3-5 个 MECE 核心问题}}</p></article>
+          <article><strong>增长卡点地图</strong><p>{{增长阶段、卡点类型、原因、影响、优先级}}</p></article>
+          <article><strong>机会判断</strong><p>{{战略机会、机会来源、价值、风险、反方修正}}</p></article>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <h3>从诊断进入品牌升级决策</h3>
+        <p>{{用一句话说明本报告如何帮助下一步品牌战略、内容策略和增长验证。}}</p>
+        <a class="gradient-button" href="#brand-upgrade">进入升级方向</a>
+      </div>
     </section>
 
     <!-- ========== 0. 一页核心结论 ========== -->
-    <section class="page-section executive-summary">
+    <section class="page-section executive-summary" id="executive-summary">
       <div class="section-kicker">00 / EXECUTIVE SUMMARY</div>
       <h2>一页核心结论</h2>
 
@@ -509,6 +565,28 @@
         <div class="score-card"><span class="dimension">转化链路</span><span class="value">{{1-5}}</span><p>{{主要问题}}</p></div>
         <div class="score-card"><span class="dimension">组织资源</span><span class="value">{{1-5}}</span><p>{{主要问题}}</p></div>
       </div>
+
+      <!-- 5.8 增长卡点地图 -->
+      <h3 id="growth-bottleneck-map">增长卡点地图</h3>
+      <div class="bottleneck-map">
+        <article><span class="icon">01</span><strong>认知</strong><p>{{当前卡点}}</p><small>类型：认知卡点 | 原因：{{产生原因}} | 优先级：{{P0/P1/P2}}</small></article>
+        <article><span class="icon">02</span><strong>兴趣</strong><p>{{当前卡点}}</p><small>类型：兴趣卡点 | 原因：{{产生原因}} | 优先级：{{P0/P1/P2}}</small></article>
+        <article><span class="icon">03</span><strong>信任</strong><p>{{当前卡点}}</p><small>类型：信任卡点 | 原因：{{产生原因}} | 优先级：{{P0/P1/P2}}</small></article>
+        <article><span class="icon">04</span><strong>转化</strong><p>{{当前卡点}}</p><small>类型：转化卡点 | 原因：{{产生原因}} | 优先级：{{P0/P1/P2}}</small></article>
+        <article><span class="icon">05</span><strong>复购 / 推荐</strong><p>{{当前卡点}}</p><small>类型：复购 / 推荐卡点 | 原因：{{产生原因}} | 优先级：{{P0/P1/P2}}</small></article>
+        <article><span class="icon">06</span><strong>渠道 / 内容 / 组织协同</strong><p>{{当前卡点}}</p><small>类型：{{卡点类型}} | 原因：{{产生原因}} | 优先级：{{P0/P1/P2}}</small></article>
+      </div>
+      <table>
+        <thead><tr><th>增长阶段</th><th>当前卡点</th><th>卡点类型</th><th>产生原因</th><th>对增长的影响</th><th>优先级</th><th>依据类型</th></tr></thead>
+        <tbody>
+          <tr><td>认知</td><td>{{卡点}}</td><td>认知卡点</td><td>{{原因}}</td><td>{{影响}}</td><td><span class="tag">{{P0/P1/P2}}</span></td><td><span class="tag">{{依据类型}}</span></td></tr>
+          <tr><td>兴趣</td><td>{{卡点}}</td><td>兴趣卡点</td><td>{{原因}}</td><td>{{影响}}</td><td><span class="tag">{{P0/P1/P2}}</span></td><td><span class="tag">{{依据类型}}</span></td></tr>
+          <tr><td>信任</td><td>{{卡点}}</td><td>信任卡点</td><td>{{原因}}</td><td>{{影响}}</td><td><span class="tag">{{P0/P1/P2}}</span></td><td><span class="tag">{{依据类型}}</span></td></tr>
+          <tr><td>转化</td><td>{{卡点}}</td><td>转化卡点</td><td>{{原因}}</td><td>{{影响}}</td><td><span class="tag">{{P0/P1/P2}}</span></td><td><span class="tag">{{依据类型}}</span></td></tr>
+          <tr><td>复购 / 推荐</td><td>{{卡点}}</td><td>复购 / 推荐卡点</td><td>{{原因}}</td><td>{{影响}}</td><td><span class="tag">{{P0/P1/P2}}</span></td><td><span class="tag">{{依据类型}}</span></td></tr>
+          <tr><td>渠道 / 内容 / 组织协同</td><td>{{卡点}}</td><td>{{卡点类型}}</td><td>{{原因}}</td><td>{{影响}}</td><td><span class="tag">{{P0/P1/P2}}</span></td><td><span class="tag">{{依据类型}}</span></td></tr>
+        </tbody>
+      </table>
     </section>
 
     <!-- ========== 6. 核心矛盾与战略机会 ========== -->
@@ -608,7 +686,7 @@
     </section>
 
     <!-- ========== 7. 品牌升级方向 ========== -->
-    <section class="page-section">
+    <section class="page-section" id="brand-upgrade">
       <div class="section-kicker">07 / UPGRADE DIRECTION</div>
       <h2>品牌升级方向</h2>
 

@@ -10,14 +10,17 @@
 - `html_template`: `report-html-template.html`
 - `html_style`: `styles/html-report.css`
 - `visual_system`
-  - `background_color`: `#FFFFFF`
-  - `text_color`: `#1A1A1A`
-  - `highlight_color`: `#C8FF00`
+  - `ui_style`: Dark mode SaaS dashboard
+  - `background_color`: `#0B0F1A` / `#0E1117`
+  - `primary_gradient`: `#6C5CE7 -> #00D2FF -> #FF4ECD`
+  - `card_background`: `rgba(255,255,255,0.06)`
+  - `card_border`: `rgba(255,255,255,0.08)`
+  - `component_style`: Glassmorphism / Neon gradient / Card-based layout
   - `chinese_font`: `PingFang SC`
   - `english_font`: `Inter / Helvetica Neue`
   - `title_weight`: 极粗标题字重
 - `evidence_types`: 公开数据 / 竞品观察 / 用户调研 / 业务数据 / 专家判断 / 待验证假设
-- `visual_models`: 视觉模型集合
+- `visual_models`: 视觉模型集合，必须包含 `growth_bottleneck_map`
 - `counter_argument`: 反方论证集合
 
 ## 0. 一页核心结论
@@ -227,6 +230,14 @@
 - `brand_breakpoint_diagnosis`
 - `conversion_chain_diagnosis`
 - `current_brand_position_score`
+- `growth_bottleneck_map`
+  - `growth_stage`: 认知 / 兴趣 / 信任 / 转化 / 复购 / 推荐 / 渠道 / 内容 / 组织协同
+  - `current_bottleneck`
+  - `bottleneck_type`
+  - `root_cause`
+  - `growth_impact`
+  - `priority`
+  - `evidence_type`
 
 以上每个子字段都必须包含：
 
@@ -392,6 +403,6 @@ LLM 在输出报告后，必须执行以下校验：
 2. **依据类型覆盖率**：统计所有 `evidence_type` 字段，检查"待验证假设"比例。如果超过 40% 且未在 8.1 中列出对应验证计划，需补充验证方案。
 3. **观点去重检查**：统计 `9.2 viewpoint_deduplication_check` 中标记为"是"（重复）的高频观点，确认已在原章节做删减处理，而非仅在附录标注。
 4. **反方论证有效性**：检查 `6.6 counter_argument` 数组中是否存在至少 1 条 `validity_assessment` 为"成立"的记录。若无，则反方论证走过场，需重新生成有实质挑战的反方问题。
-5. **视觉模型完整性**：检查 `visual_models` 对象中是否包含全部 6 个必填字段：`brand_mind_migration_map`、`user_scenario_chain_map`、`competitor_entry_map`、`brand_problem_pyramid`、`brand_position_migration_map`、`twelve_month_brand_roadmap`。
+5. **视觉模型完整性**：检查 `visual_models` 对象中是否包含全部 7 个必填字段：`brand_mind_migration_map`、`user_scenario_chain_map`、`competitor_entry_map`、`brand_problem_pyramid`、`brand_position_migration_map`、`twelve_month_brand_roadmap`、`growth_bottleneck_map`。
 6. **品牌名称动态化**：检查 Chapter 5 标题中 `{{品牌名称}}` 是否正确替换为输入品牌名称，全文无写死的具体品牌名称。
 7. **章节引用一致性**：检查报告中所有"该问题将在第 X 章集中展开"的交叉引用，确认目标章节确实包含对应内容。

@@ -1,6 +1,6 @@
 ---
 name: brand-diagnosis-skill
-description: Generate formal consulting-style Chinese brand diagnosis reports as polished HTML-first proposal reports for brand marketing leaders, senior brand managers, brand strategy consultants, growth marketing leaders, content leaders, IP commercialization owners, new business brand owners, and annual brand planning owners. Use when the user asks for brand diagnosis, brand audit, full-case brand diagnosis layer, industry and entry change analysis, competitor mindshare mapping, user scenario insight, brand asset breakpoint diagnosis, core tension and strategic opportunity extraction, counter-argument validation, brand upgrade direction, HTML report generation, PDF-ready proposal reports, or reusable Chinese consulting report templates for a company, product, service, IP, or business line.
+description: Generate formal consulting-style Chinese brand diagnosis reports as polished HTML-first dark-mode SaaS dashboard proposal reports for brand marketing leaders, senior brand managers, brand strategy consultants, growth marketing leaders, content leaders, IP commercialization owners, new business brand owners, and annual brand planning owners. Use when the user asks for brand diagnosis, brand audit, full-case brand diagnosis layer, problem attribution, bottleneck identification, growth bottleneck mapping, structural breakdown, industry and entry change analysis, competitor mindshare mapping, user scenario insight, brand asset breakpoint diagnosis, core tension and strategic opportunity extraction, counter-argument validation, brand upgrade direction, HTML report generation, PDF-ready proposal reports, or reusable Chinese consulting report templates for a company, product, service, IP, or business line.
 ---
 
 # 品牌诊断 Skill
@@ -30,15 +30,20 @@ description: Generate formal consulting-style Chinese brand diagnosis reports as
 
 HTML 报告必须遵守以下视觉系统：
 
-- 核心视觉：白背景 + 荧光高亮字/色块 + 黑色文字。
-- 荧光色：`#C8FF00`。
-- 白色：`#FFFFFF`。
-- 黑色：`#1A1A1A`。
+- 整体风格：Dark mode SaaS dashboard。
+- 视觉语言：Glassmorphism 轻玻璃拟态、Neon gradient 紫 / 蓝 / 粉、Card-based layout。
+- 页面结构：Hero Section -> Metrics Cards -> Feature Grid (Skill 模块) -> Workflow Section -> Output Preview -> CTA Section。
+- 背景色：`#0B0F1A` / `#0E1117`。
+- 主渐变：`#6C5CE7` -> `#00D2FF` -> `#FF4ECD`。
+- 卡片底色：`rgba(255,255,255,0.06)`。
+- 卡片边框：`rgba(255,255,255,0.08)`。
+- 正文文字：以白色和半透明白色为主，确保暗色背景上可读。
 - 中文字体：`PingFang SC`。
 - 英文字体：`Inter / Helvetica Neue`。
 - 标题：使用 Inter 系无衬线风格，极粗字重，建议 `font-weight: 900` 或以上。
-- 版式：咨询提案式分屏结构，使用大标题、荧光标签、重点结论色块、黑色描边表格、模块化卡片。
-- 不使用暗黑背景，不使用多彩渐变，不使用与视觉系统无关的装饰色。
+- 组件：16-24px 圆角卡片、soft shadow + glow、hover lift effect、gradient button CTA、Icon + title + description。
+- 版式：咨询提案式 dashboard 结构，使用大标题、渐变标签、重点结论玻璃卡片、暗色表格、模块化卡片。
+- 不使用白底报告风格，不使用与视觉系统无关的装饰色，不使用低对比文字。
 
 ## 使用人群
 
@@ -211,6 +216,7 @@ HTML 报告必须遵守以下视觉系统：
 - 5.5 品牌断点诊断：断点类型包括心智断点、场景断点、信任断点、内容断点、渠道断点、转化断点、会员 / 生态断点、组织协同断点。
 - 5.6 转化链路诊断：链路阶段必须包含认知、兴趣、信任、行动、复购 / 推荐。
 - 5.7 品牌当前位置评分：对品牌认知、品牌定位、品牌主张、品牌资产、内容资产、渠道效率、信任资产、转化链路、组织资源评分，并说明依据。
+- 5.8 增长卡点地图：必须输出“增长阶段、当前卡点、卡点类型、产生原因、对增长的影响、优先级、依据类型”。卡点类型包括认知卡点、兴趣卡点、信任卡点、转化卡点、复购卡点、推荐卡点、渠道卡点、内容卡点、组织协同卡点。
 
 ### 6. 核心矛盾与战略机会
 
@@ -258,6 +264,7 @@ HTML 报告必须遵守以下视觉系统：
 4. 品牌问题金字塔：区分表面问题、直接原因、深层根因和战略命题。
 5. 本品牌当前位置到目标位置迁移图：说明品牌从当前竞争位置迁移到目标竞争位置。
 6. 12 个月品牌建设路线图：说明品牌建设节奏、阶段目标、关键产出和验证指标。
+7. 增长卡点地图：说明增长链路中卡在认知、兴趣、信任、转化、复购、推荐、渠道、内容或组织协同的具体位置。
 
 视觉模型可以使用 Mermaid、Markdown 表格或文本图示，优先使用 Mermaid 和表格。
 
@@ -391,9 +398,9 @@ HTML 报告必须遵守以下视觉系统：
 
 ### Chapter 5: 品牌资产与断点
 - **必须回答的问题**：品牌有什么资产？为什么这些资产没有转化为增长？
-- **最低输出**：5.4 资产盘点 + 5.5 断点诊断 + 5.7 当前位置评分
-- **常见失败模式**：评分全部 3 分，无区分度；资产盘点不区分"品牌方认为的资产"和"用户实际感知的资产"
-- **"好"的信号**：能明确说出品牌最大的 2-3 个资产断点及其对增长的影响
+- **最低输出**：5.4 资产盘点 + 5.5 断点诊断 + 5.7 当前位置评分 + 5.8 增长卡点地图
+- **常见失败模式**：评分全部 3 分，无区分度；资产盘点不区分"品牌方认为的资产"和"用户实际感知的资产"；增长卡点地图只是重复断点诊断
+- **"好"的信号**：能明确说出品牌最大的 2-3 个资产断点、最关键的增长卡点及其对增长的影响
 
 ### Chapter 6: 核心矛盾与战略机会
 - **必须回答的问题**：所有前文分析在此收敛——品牌真正要解决的核心矛盾是什么？
